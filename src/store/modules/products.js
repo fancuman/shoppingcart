@@ -12,7 +12,7 @@ const mutations = {
 }
 const actions = {
     getProductList: ({ commit }) => {
-        shop(products => commit('setProducts', products))
+        shop.getAllProducts(products => commit('setProducts', products))
     },
 }
 export default {
