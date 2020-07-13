@@ -11,7 +11,7 @@ function getAllProducts(cb) {
   }, 1000);
 }
 
-function buyProduct( success, fail) {
+function buyProduct(success, fail) {
   setTimeout(() => {
     Math.random() > 0.5 ? success() : fail();
   }, 500);

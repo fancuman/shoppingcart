@@ -23,12 +23,13 @@ const mutations = {
 
 const actions = {
   addProductToCart: ({ commit }, product) => {
-    console.log("add", product);
+    commit("setCheckoutStatus", null);
     commit("addProduct", product.id);
     commit("products/decreaseInventory", product.id, { root: true });
   },
   checkout: ({ commit }) => {
     let savedItems = state.items;
+    commit("setCheckoutStatus", null);
     shop.buyProduct(
       () => {
         commit("setCartItems", []);
