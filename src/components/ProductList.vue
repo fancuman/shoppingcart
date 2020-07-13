@@ -2,6 +2,7 @@
   <div>
     <h2>Products</h2>
     <ul>
+      <p v-if="!loadingCompleted">Loading products...</p>
       <li v-for="(product, index) in products" :key="index">
         {{product.name}} - ${{product.price}}: Available number - {{product.inventory}}
         <br />
@@ -17,7 +18,8 @@ export default {
   computed: {
     ...mapState({
       products: state => state.products.all
-    })
+    }),
+    ...mapState("products", ["loadingCompleted"])
   },
   methods: {
     ...mapActions({
